@@ -15,15 +15,16 @@ Hola! Este es mi proyecto de Angular, una pequeña guía cualquier cosa,
 
 ![image](https://github.com/Daniel-Tavarez/Angular-and-js-test/assets/63930346/ccaade64-2e2c-42dd-982c-1adea88a4d5a)
 
+![image](https://github.com/Daniel-Tavarez/Angular-and-js-test/assets/63930346/0c75ca77-b775-429a-aa92-a6af03ee66a7)
 
 Ahora los proyectos de lógica!
 
 Cada uno solo debe correrse bajo el comando:
 
-node prueba-1.js
-node prueba-2.js
-node prueba-3.js
-node prueba-4.js
+- node prueba-1.js
+- node prueba-2.js
+- node prueba-3.js
+- node prueba-4.js
 
 Es una aplicación de consola en JavaScript puro, no hay perdedera!
 
