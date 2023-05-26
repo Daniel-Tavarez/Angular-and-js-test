@@ -23,12 +23,6 @@ function runConsoleApp() {
     (answer) => {
       const quantity = parseInt(answer) || 5;
 
-      if (quantity < 1) {
-        console.log("La cantidad no puede ser menor a 1, intente de nuevo");
-        readLine.close();
-        return;
-      }
-
       if (quantity > 20) {
         console.log(
           "No es posible agregar más de 20 números, intente de nuevo"

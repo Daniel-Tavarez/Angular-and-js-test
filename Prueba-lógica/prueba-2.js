@@ -1,12 +1,18 @@
+function generateRandomNumber() {
+  const { min, max } = { min: 1, max: 5000 };
+  const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  return randomNumber;
+}
+
 function generatePrimeNumbers(count = 9) {
   const generatedPrimeNumbers = [];
-  let number = 2;
+  let number = generateRandomNumber();
 
   while (generatedPrimeNumbers.length < count) {
     if (validateIfTheNumberIsPrime(number)) {
       generatedPrimeNumbers.push(number);
     }
-    number++;
+    number = generateRandomNumber();
   }
 
   return generatedPrimeNumbers;
@@ -30,12 +36,6 @@ const rl = readline.createInterface({
 
 rl.question("Ingrese la cantidad de números primos a generar: ", (answer) => {
   const count = parseInt(answer, 10) || 9;
-
-  if (answer < 1 || count == 0) {
-    console.log("La cantidad no puede ser menor a 1, intente de nuevo");
-    readLine.close();
-    return;
-  }
 
   const primeNumbers = generatePrimeNumbers(count);
   console.log("Los números primos son: ", primeNumbers.join(", "));
