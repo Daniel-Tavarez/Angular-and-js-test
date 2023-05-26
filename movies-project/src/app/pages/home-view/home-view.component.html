@@ -21,7 +21,9 @@
         <div class="right-card-content">
           <div class="title-and-star">
             <p (click)="redirectToMovieDetail(movie.id)">{{ movie.title }}</p>
-            <button (click)="saveOrDeleteFavoritedMovie(movie.id, !movie.favorite)">
+            <button
+              (click)="saveOrDeleteFavoritedMovie(movie.id, !movie.favorite)"
+            >
               <img [src]="movie.favorite ? star : emptyStar" alt="" />
             </button>
           </div>
