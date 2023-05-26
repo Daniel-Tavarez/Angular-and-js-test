@@ -55,6 +55,8 @@ export class HomeViewComponent {
       }
     }
 
+    // debugger;
+
     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
     this.loadFavoriteMovies();
     this.loadMovies();
@@ -88,6 +90,10 @@ export class HomeViewComponent {
         ...movie,
         favorite: this.isMovieFavorited(movie.id),
       }));
+      
+      if (this.filterValue) {
+        this.movies = this.movies.filter((x) => x.favorite == this.filterValue);
+      }
     });
   }
 
