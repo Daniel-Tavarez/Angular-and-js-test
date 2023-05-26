@@ -11,7 +11,7 @@
 </div>
 <div class="home-wrapper">
   <div class="movie-card-container">
-    <div *ngFor="let movie of movieToShow.results">
+    <div *ngFor="let movie of movies">
       <div class="movie-card">
         <div class="left-card-content">
           <div class="name-trimmed" (click)="redirectToMovieDetail(movie.id)">
@@ -20,8 +20,8 @@
         </div>
         <div class="right-card-content">
           <div class="title-and-star">
-            <p>{{ movie.title }}</p>
-            <button (click)="markMovieAsFavorite(movie.id)">
+            <p (click)="redirectToMovieDetail(movie.id)">{{ movie.title }}</p>
+            <button (click)="saveOrDeleteFavoritedMovie(movie.id, !movie.favorite)">
               <img [src]="movie.favorite ? star : emptyStar" alt="" />
             </button>
           </div>

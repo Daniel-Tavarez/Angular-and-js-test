@@ -35,9 +35,43 @@ export class MovieDetailComponent {
     });
   }
 
+  saveOrDeleteFavoritedMovie(movieId: number, isFavorite: boolean): void {
+    const favoriteMovies: { movieId: number; favorite: boolean }[] = JSON.parse(
+      localStorage.getItem('favoriteMovies') || '[]'
+    );
+
+    const movieIndex = favoriteMovies.findIndex(
+      (movie) => movie.movieId === movieId
+    );
+
+    if (isFavorite) {
+      if (movieIndex !== -1) {
+        favoriteMovies[movieIndex].favorite = true;
+      } else {
+        favoriteMovies.push({ movieId, favorite: true });
+      }
+    } else {
+      if (movieIndex !== -1) {
+        favoriteMovies.splice(movieIndex, 1);
+      }
+    }
+
+    localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
+    this.getMovieById(movieId);
+  }
+
   getMovieById(id: number): void {
     this.movieService.getById(id).subscribe((movie) => {
       this.movie = movie;
+      const isFavorited = this.isMovieFavorited(movie.id);
+      this.movie.favorite = isFavorited;
     });
+  }
+
+  isMovieFavorited(movieId: number): boolean {
+    const favoritedMovies = JSON.parse(localStorage.getItem('favoriteMovies')!);
+    return favoritedMovies.some(
+      (favoriteMovie: any) => favoriteMovie.movieId === movieId
+    );
   }
 }

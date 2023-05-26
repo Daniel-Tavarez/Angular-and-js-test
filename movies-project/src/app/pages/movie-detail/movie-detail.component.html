@@ -14,8 +14,10 @@
     <div class="information">
       <div class="title-and-rating">
         <h3>{{ movie!.title }}</h3>
-        <button (click)="markMovieAsFavorite()">
-          <img [src]="changeState ? star : emptyStar" alt="" />
+        <button
+          (click)="saveOrDeleteFavoritedMovie(movie!.id, !movie!.favorite)"
+        >
+          <img [src]="movie!.favorite ? star : emptyStar" alt="" />
         </button>
       </div>
       <div class="rating-text">
