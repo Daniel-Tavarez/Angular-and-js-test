@@ -55,8 +55,6 @@ export class HomeViewComponent {
       }
     }
 
-    // debugger;
-
     localStorage.setItem('favoriteMovies', JSON.stringify(favoriteMovies));
     this.loadFavoriteMovies();
     this.loadMovies();
