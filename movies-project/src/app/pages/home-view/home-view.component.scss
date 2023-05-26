@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  padding: 20px 0;
+  justify-content: center;
+  background-color: #ddd;
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+.filter {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  align-items: center;
+  gap: 10px;
+  span {
+    font-size: 1.3rem;
+  }
+  input {
+    width: 25px;
+    height: 25px;
+  }
+}
+.home-wrapper {
+  .movie-card-container {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    .movie-card {
+      border: 1px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 20px;
+      height: 120px;
+      .left-card-content {
+        width: 30%;
+        .name-trimmed {
+          cursor: pointer;
+          border: 1px solid #000;
+          width: 90px;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          h3 {
+            margin: 0;
+          }
+        }
+      }
+      .right-card-content {
+        width: 70%;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        .title-and-star {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          p {
+            margin: 0;
+            text-align: right;
+          }
+          button {
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+          }
+        }
+        .rating-points {
+          // margin-top: 25px;
+          margin-right: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .header {
+    .content {
+      flex-direction: column;
+      gap: 10px;
+      h1 {
+        margin: 0;
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .header {
+    .content {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

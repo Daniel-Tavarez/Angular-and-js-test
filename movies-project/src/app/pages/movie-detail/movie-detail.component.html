@@ -1,0 +1,29 @@
+<div class="header">
+  <div class="content">
+    <h1>Daniel Jose Tavarez Alvarez</h1>
+    <span> - </span>
+    <h1>25 de Mayo del 2023</h1>
+  </div>
+</div>
+
+<div class="movie-detail-container">
+  <div class="movie-detail">
+    <div class="image">
+      <img [src]="imageProcesser(movie!.backdrop_path)" alt="" />
+    </div>
+    <div class="information">
+      <div class="title-and-rating">
+        <h3>{{ movie!.title }}</h3>
+        <button (click)="markMovieAsFavorite()">
+          <img [src]="changeState ? star : emptyStar" alt="" />
+        </button>
+      </div>
+      <div class="rating-text">
+        <p>{{ movie!.vote_average | number : "1.1-1" }}/10</p>
+      </div>
+      <div class="overview">
+        <p>{{ movie!.overview }}</p>
+      </div>
+    </div>
+  </div>
+</div>

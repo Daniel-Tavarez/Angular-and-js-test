@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="content">
+    <h1>Daniel Jose Tavarez Alvarez</h1>
+    <span> - </span>
+    <h1>25 de Mayo del 2023</h1>
+  </div>
+</div>
+<div class="filter">
+  <span>Filtrar por favoritos</span>
+  <input [(ngModel)]="filterValue" (change)="filter()" type="checkbox" />
+</div>
+<div class="home-wrapper">
+  <div class="movie-card-container">
+    <div *ngFor="let movie of movieToShow.results">
+      <div class="movie-card">
+        <div class="left-card-content">
+          <div class="name-trimmed" (click)="redirectToMovieDetail(movie.id)">
+            <h3>{{ trimName(movie.title) }}</h3>
+          </div>
+        </div>
+        <div class="right-card-content">
+          <div class="title-and-star">
+            <p>{{ movie.title }}</p>
+            <button (click)="markMovieAsFavorite(movie.id)">
+              <img [src]="movie.favorite ? star : emptyStar" alt="" />
+            </button>
+          </div>
+          <div class="rating-points">
+            <p>{{ movie.vote_average }}/10</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
